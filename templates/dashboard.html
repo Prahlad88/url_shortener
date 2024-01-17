@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+</head>
+<body>
+
+    <div class="navbar">
+        <span class="brand">URL Shortener</span>
+        <a href="{% url 'homepage' %}">Home</a>
+    {% if user.is_authenticated %}
+         <a href="{% url 'dashboard' %}" class="active">Dashboard</a>
+         <a href="{% url 'logout' %}">Logout</a>
+         <span class="username">{{ user.username }}</span>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+    </div>
+
+    <div class="content">
+        <br><br><br>
+        <h1>Welcome, {{ user.username }}!</h1>
+        <br>
+
+        {% if links %}
+        <table>
+            <thead>
+                <tr>
+                    <th>S.N.</th>
+                    <th>Short URL</th>
+                    <th>Original URL</th>
+                    <th>Visit Count</th>
+                    <th>Creation Date</th>
+                    <th>Expiry Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for link in links %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a href="{{ link.short_url }}" target="_blank">{{ link.short_url }}</a></td>
+                        <td><a href="{{ link.original_url }}" target="_blank">{{ link.original_url }}</a></td>
+                        <td>{{ link.visit_count }}</td>
+                        <td>{{ link.creation_date }}</td>
+                        <td>{{ link.expiry_date }}</td>
+                            <td>
+                                    <button type="submit">Edit</button>
+                            </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>No Short links created yet !! Go to homepage to create a short link.</h3>
+    {% endif %}
+    </div>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="creator-info">
+            <p>Created by:</p><p class="my-name">Prahlad Kumar Shah</p>
+            <p>+9779807001537</p>
+            <p>For more information: <a href="https://github.com/pkParadox88">Contact</a></p>
+        </div>
+        <div class="company-info">
+            <p>&copy; 2024 Vrit Technologies. All rights reserved.</p>
+            <p>Submitted to: <a href="https://vrittechnologies.com/">Vrit Tech</a></p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/* Add this to your existing CSS or create a new CSS file */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #37474F; /* Blue-gray background color for header */
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #B0BEC5; /* Blue-gray border color between rows */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ECEFF1; /* Alternate background color for even rows (light gray) */
+}
+
+tbody tr:hover {
+    background-color: #B2DFDB; /* Background color on hover (light green) */
+}
+
+/* Add more styles as needed */

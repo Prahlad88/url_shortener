@@ -1,0 +1,46 @@
+/* Your existing styles here */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    height: 120px; /* Set a fixed height */
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    height: 100%; /* Ensure child elements fill the entire height */
+}
+
+.creator-info,
+.company-info {
+    flex: 1;
+    height: 100%; /* Ensure child elements fill the entire height */
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0; /* Remove any default margins */
+}
+
+.creator-info p,
+.company-info p {
+    margin: 5px 0; /* Adjust the margins for paragraphs */
+}
+
+a {
+    color: deepskyblue;
+    text-decoration: underline;
+}
+
+
+.my-name{
+    font-weight: bold;
+}
